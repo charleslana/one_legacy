@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeProvider(),
+          create: (_) => ThemeProvider(sharedPreferences: sharedPreferences),
         ),
         ChangeNotifierProvider(
           create: (_) => LocaleProvider(),

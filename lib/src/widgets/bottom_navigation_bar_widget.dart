@@ -1,8 +1,17 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:one_legacy/src/widgets/app_bar_widget.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({Key? key}) : super(key: key);
+  const BottomNavigationBarWidget({
+    required this.widgets,
+    required this.bottomNavigationBarItem,
+    required this.appBarWidget,
+    Key? key,
+  }) : super(key: key);
+
+  final List<Widget> widgets;
+  final List<BottomNavigationBarItem> bottomNavigationBarItem;
+  final AppBarWidget appBarWidget;
 
   @override
   _BottomNavigationBarWidgetState createState() =>
@@ -22,30 +31,13 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> widgets = [
-      Center(
-        child: Text(_currentIndex.toString()),
-      ),
-      Center(
-        child: Text(_currentIndex.toString()),
-      ),
-    ];
-
     return Scaffold(
-      body: widgets.elementAt(_currentIndex),
+      appBar: widget.appBarWidget,
+      body: widget.widgets.elementAt(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _changeView,
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
-            label: AppLocalizations.of(context)!.bottomNavigationBarHome,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.groups),
-            label: AppLocalizations.of(context)!.bottomNavigationBarTeam,
-          ),
-        ],
+        items: widget.bottomNavigationBarItem,
       ),
     );
   }

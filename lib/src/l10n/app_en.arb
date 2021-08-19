@@ -1,4 +1,5 @@
 {
-    "bottomNavigationBarHome": "Home",
-    "bottomNavigationBarTeam": "Team"
+    "appBarHome": "Home",
+    "bottomNavigationBarHomeUnits": "Units",
+    "bottomNavigationBarHomeTeam": "Team"
 }

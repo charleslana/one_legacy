@@ -12,11 +12,9 @@ class LocaleProvider extends ChangeNotifier {
         L10n.supportedLocales.where((locale) => locale == Locale(languageCode));
 
     if (sharedLocale == null) {
-      if (supportedLocales.isNotEmpty) {
-        locale = Locale(languageCode);
-      } else {
-        locale = const Locale('en');
-      }
+      supportedLocales.isNotEmpty
+          ? locale = Locale(languageCode)
+          : locale = const Locale('en');
     } else {
       locale = Locale(sharedLocale);
     }

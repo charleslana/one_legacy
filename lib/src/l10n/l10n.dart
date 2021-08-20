@@ -4,7 +4,7 @@ class L10n {
   static const supportedLocales = [
     Locale('en'),
     Locale('es'),
-    Locale('pt', 'BR'),
+    Locale('pt'),
   ];
 
   static int getCountry(String code) {

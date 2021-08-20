@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  ThemeProvider({required SharedPreferences? sharedPreferences}) {
+  ThemeProvider(SharedPreferences? sharedPreferences) {
     final bool? isDarkMode = sharedPreferences!.getBool('sharedDarkMode');
+    final brightness =
+        MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
+            .platformBrightness;
 
     if (isDarkMode == null) {
-      _brightness == Brightness.dark
+      brightness == Brightness.dark
           ? themeMode = ThemeMode.dark
           : themeMode = ThemeMode.light;
     } else {
@@ -14,9 +17,7 @@ class ThemeProvider extends ChangeNotifier {
     }
   }
 
-  ThemeMode themeMode = ThemeMode.system;
-  final _brightness = MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
-      .platformBrightness;
+  late ThemeMode themeMode;
 }
 
 final lighTheme = ThemeData(

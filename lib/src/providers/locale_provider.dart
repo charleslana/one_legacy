@@ -1,5 +1,26 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:one_legacy/src/l10n/l10n.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocaleProvider extends ChangeNotifier {
-  Locale locale = const Locale('pt', 'BR');
+  LocaleProvider(SharedPreferences? sharedPreferences) {
+    final String? sharedLocale = sharedPreferences!.getString('sharedLocale');
+    final String languageCode = ui.window.locale.languageCode;
+    final supportedLocales =
+        L10n.supportedLocales.where((locale) => locale == Locale(languageCode));
+
+    if (sharedLocale == null) {
+      if (supportedLocales.isNotEmpty) {
+        locale = Locale(languageCode);
+      } else {
+        locale = const Locale('en');
+      }
+    } else {
+      locale = Locale(sharedLocale);
+    }
+  }
+
+  late Locale locale;
 }

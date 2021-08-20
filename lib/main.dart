@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeProvider(sharedPreferences: sharedPreferences),
+          create: (_) => ThemeProvider(sharedPreferences),
         ),
         ChangeNotifierProvider(
-          create: (_) => LocaleProvider(),
+          create: (_) => LocaleProvider(sharedPreferences),
         ),
       ],
       child: const MyAppMaterial(),

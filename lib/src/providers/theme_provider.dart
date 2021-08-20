@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemeProvider extends ChangeNotifier {
   ThemeProvider(SharedPreferences? sharedPreferences) {
     final bool? isDarkMode = sharedPreferences!.getBool('sharedDarkMode');
-    final brightness =
+    final Brightness brightness =
         MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
             .platformBrightness;
 

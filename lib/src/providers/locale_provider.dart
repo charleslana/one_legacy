@@ -8,7 +8,7 @@ class LocaleProvider extends ChangeNotifier {
   LocaleProvider(SharedPreferences? sharedPreferences) {
     final String? sharedLocale = sharedPreferences!.getString('sharedLocale');
     final String languageCode = ui.window.locale.languageCode;
-    final supportedLocales =
+    final Iterable<Locale> supportedLocales =
         L10n.supportedLocales.where((locale) => locale == Locale(languageCode));
 
     if (sharedLocale == null) {

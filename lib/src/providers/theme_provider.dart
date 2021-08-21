@@ -3,21 +3,76 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeProvider(SharedPreferences? sharedPreferences) {
-    final bool? isDarkMode = sharedPreferences!.getBool('sharedDarkMode');
-    final Brightness brightness =
-        MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
-            .platformBrightness;
+    final bool? key = sharedPreferences!.getBool(_key);
 
-    if (isDarkMode == null) {
-      brightness == Brightness.dark
-          ? themeMode = ThemeMode.dark
-          : themeMode = ThemeMode.light;
+    if (key == null) {
+      isDefaultTheme = true;
+
+      if (brightness == Brightness.dark) {
+        themeMode = ThemeMode.dark;
+        isDarkMode = true;
+      } else {
+        themeMode = ThemeMode.light;
+        isDarkMode = false;
+      }
     } else {
-      isDarkMode ? themeMode = ThemeMode.dark : themeMode = ThemeMode.light;
+      isDefaultTheme = false;
+
+      if (key) {
+        themeMode = ThemeMode.dark;
+        isDarkMode = true;
+      } else {
+        themeMode = ThemeMode.light;
+        isDarkMode = false;
+      }
     }
   }
 
+  final Brightness brightness =
+      MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
+          .platformBrightness;
+  final String _key = 'sharedDarkMode';
   late ThemeMode themeMode;
+  late bool isDefaultTheme;
+  late bool isDarkMode;
+
+  Future<void> remove() async {
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    await preferences.remove(_key);
+
+    isDefaultTheme = true;
+
+    if (brightness == Brightness.dark) {
+      themeMode = ThemeMode.dark;
+      isDarkMode = true;
+    } else {
+      themeMode = ThemeMode.light;
+      isDarkMode = false;
+    }
+
+    notifyListeners();
+  }
+
+  Future<void> toggle({required bool isOn}) async {
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    if (isOn) {
+      await preferences.setBool(_key, true);
+
+      themeMode = ThemeMode.dark;
+      isDarkMode = true;
+    } else {
+      await preferences.setBool(_key, false);
+
+      themeMode = ThemeMode.light;
+      isDarkMode = false;
+    }
+
+    isDefaultTheme = false;
+
+    notifyListeners();
+  }
 }
 
 final lighTheme = ThemeData(

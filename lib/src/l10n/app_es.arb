@@ -2,5 +2,8 @@
     "appBarHome": "Casa",
     "appBarSettings": "Ajustes",
     "bottomNavigationBarHomeUnits": "Unidades",
-    "bottomNavigationBarHomeTeam": "Equipo"
+    "bottomNavigationBarHomeTeam": "Equipo",
+    "pageSettingsTheme": "Tema",
+    "pageSettingsDefaultTheme": "Tema predeterminado definido por el sistema",
+    "pageSettingsDarkMode": "Modo oscuro"
 }

@@ -10,10 +10,12 @@ class RouteTransitionWidget extends PageRouteBuilder<dynamic> {
               Animation<double> secondaryAnimation) {
             return widget;
           },
-          transitionsBuilder: (BuildContext context,
-              Animation<double> animation,
-              Animation<double> secondaryAnimation,
-              Widget child) {
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) {
             return SlideTransition(
               transformHitTests: false,
               position: Tween<Offset>(

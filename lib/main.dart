@@ -7,6 +7,7 @@ import 'package:one_legacy/src/pages/settings_page.dart';
 import 'package:one_legacy/src/providers/locale_provider.dart';
 import 'package:one_legacy/src/providers/theme_provider.dart';
 import 'package:one_legacy/src/routes.dart';
+import 'package:one_legacy/src/widgets/route_transition_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -62,9 +63,24 @@ class MyAppMaterial extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       initialRoute: Routes.home,
-      routes: {
-        Routes.home: (_) => const HomePage(),
-        Routes.settings: (_) => const SettingsPage(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case Routes.home:
+            return RouteTransitionWidget(
+              widget: const HomePage(),
+              settings: settings,
+            );
+          case Routes.settings:
+            return RouteTransitionWidget(
+              widget: const SettingsPage(),
+              settings: settings,
+            );
+          default:
+            return RouteTransitionWidget(
+              widget: const HomePage(),
+              settings: settings,
+            );
+        }
       },
     );
   }

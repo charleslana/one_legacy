@@ -7,7 +7,7 @@ class L10n {
     Locale('pt'),
   ];
 
-  static int getCountry(String code) {
+  static int getLanguage(String code) {
     switch (code) {
       case 'en':
         return 1;
@@ -16,7 +16,7 @@ class L10n {
       case 'pt':
         return 3;
       default:
-        return 0;
+        return 1;
     }
   }
 }

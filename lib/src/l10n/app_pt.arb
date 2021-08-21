@@ -5,5 +5,10 @@
     "bottomNavigationBarHomeTeam": "Equipe",
     "pageSettingsTheme": "Tema",
     "pageSettingsDefaultTheme": "Tema padrão definido pelo sistema",
-    "pageSettingsDarkMode": "Modo escuro"
+    "pageSettingsDarkMode": "Modo escuro",
+    "pageSettingsLanguage": "Idioma",
+    "pageSettingsDefaultLanguage": "Idioma padrão definido pelo sistema",
+    "pageSettingsLanguageEnglish": "Inglês",
+    "pageSettingsLanguageSpanish": "Espanhol",
+    "pageSettingsLanguagePortuguese": "Português"
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_legacy/src/routes.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({
@@ -13,11 +14,17 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentRoute = ModalRoute.of(context)!.settings.name;
+
     return AppBar(
       title: Text(title),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            if (currentRoute != Routes.settings) {
+              Navigator.of(context).pushNamed(Routes.settings);
+            }
+          },
           icon: const Icon(
             Icons.settings,
           ),

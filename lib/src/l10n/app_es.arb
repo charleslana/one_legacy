@@ -1,5 +1,6 @@
 {
     "appBarHome": "Casa",
+    "appBarSettings": "Ajustes",
     "bottomNavigationBarHomeUnits": "Unidades",
     "bottomNavigationBarHomeTeam": "Equipo"
 }

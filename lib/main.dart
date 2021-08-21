@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:one_legacy/src/l10n/l10n.dart';
 import 'package:one_legacy/src/pages/home_page.dart';
+import 'package:one_legacy/src/pages/settings_page.dart';
 import 'package:one_legacy/src/providers/locale_provider.dart';
 import 'package:one_legacy/src/providers/theme_provider.dart';
 import 'package:one_legacy/src/routes.dart';
@@ -63,6 +64,7 @@ class MyAppMaterial extends StatelessWidget {
       initialRoute: Routes.home,
       routes: {
         Routes.home: (_) => const HomePage(),
+        Routes.settings: (_) => const SettingsPage(),
       },
     );
   }

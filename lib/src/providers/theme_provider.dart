@@ -81,6 +81,40 @@ final lighTheme = ThemeData(
   colorScheme: const ColorScheme.light().copyWith(
     primary: Colors.orangeAccent,
   ),
+  switchTheme: SwitchThemeData(
+    thumbColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.orangeAccent;
+        }
+        return Colors.white.withAlpha(700);
+      },
+    ),
+    trackColor: MaterialStateProperty.all(Colors.grey.withAlpha(700)),
+  ),
+  checkboxTheme: CheckboxThemeData(
+    fillColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.orangeAccent;
+        }
+        return Colors.grey;
+      },
+    ),
+  ),
+  radioTheme: RadioThemeData(
+    fillColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.orangeAccent;
+        }
+        return Colors.grey;
+      },
+    ),
+  ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    selectedItemColor: Colors.orangeAccent,
+  ),
 );
 
 final darkTheme = ThemeData(
@@ -88,5 +122,39 @@ final darkTheme = ThemeData(
   primaryColor: Colors.orangeAccent,
   colorScheme: const ColorScheme.dark().copyWith(
     primary: Colors.orangeAccent,
+  ),
+  switchTheme: SwitchThemeData(
+    thumbColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.orangeAccent;
+        }
+        return Colors.white.withAlpha(700);
+      },
+    ),
+    trackColor: MaterialStateProperty.all(Colors.grey.withAlpha(700)),
+  ),
+  checkboxTheme: CheckboxThemeData(
+    fillColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.orangeAccent;
+        }
+        return Colors.grey;
+      },
+    ),
+  ),
+  radioTheme: RadioThemeData(
+    fillColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
+          return Colors.orangeAccent;
+        }
+        return Colors.grey;
+      },
+    ),
+  ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    selectedItemColor: Colors.orangeAccent,
   ),
 );

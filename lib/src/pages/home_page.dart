@@ -1,5 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:one_legacy/src/constants.dart';
 import 'package:one_legacy/src/pages/home_team_page.dart';
 import 'package:one_legacy/src/pages/home_units_page.dart';
 import 'package:one_legacy/src/widgets/app_bar_widget.dart';
@@ -18,11 +19,17 @@ class HomePage extends StatelessWidget {
           ),
           bottomNavigationBarItem: [
             BottomNavigationBarItem(
-              icon: const Icon(Icons.ad_units),
+              icon: Image.asset(
+                Constants.bottomNavigationBarUnits,
+                height: 38,
+              ),
               label: AppLocalizations.of(context)!.bottomNavigationBarHomeUnits,
             ),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.groups),
+              icon: Image.asset(
+                Constants.bottomNavigationBarTeam,
+                height: 38,
+              ),
               label: AppLocalizations.of(context)!.bottomNavigationBarHomeTeam,
             ),
           ],
